@@ -5,7 +5,7 @@ import { fortmatic, injected, portis, walletconnect, walletlink } from '../conne
 
 // TODO: Use sashimi router
 // TODO: change .env
-export const ROUTER_ADDRESS = '0xe4fe6a45f354e845f954cddee6084603cedb9410'
+export const ROUTER_ADDRESS = '0x31DB862DF7be09718a860c46ab17CA57966e69ed'
 
 // a list of tokens by chain
 type ChainTokenList = {

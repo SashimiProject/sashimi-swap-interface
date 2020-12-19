@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
-    "@sashimiswap/sdk": "^1.0.3",
+    "@sashimiswap/sdk": "1.0.3-kovan",
     "@sashimiswap/core": "^1.0.2",
     "@sashimiswap/periphery": "^1.0.1",
     "antd": "^4.2.2",
