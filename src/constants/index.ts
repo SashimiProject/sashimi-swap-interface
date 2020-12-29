@@ -18,8 +18,8 @@ export const USDT = new Token(ChainId.MAINNET, '0xdAC17F958D2ee523a2206206994597
 export const COMP = new Token(ChainId.MAINNET, '0xc00e94Cb662C3520282E6f5717214004A7f26888', 18, 'COMP', 'Compound')
 export const MKR = new Token(ChainId.MAINNET, '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2', 18, 'MKR', 'Maker')
 export const AMPL = new Token(ChainId.MAINNET, '0xD46bA6D942050d489DBd938a2C909A5d5039A161', 9, 'AMPL', 'Ampleforth')
-export const cDAI = new Token(ChainId.HECO, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai');
-export const cUSDC = new Token(ChainId.HECO, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin');
+export const cDAI = new Token(ChainId.MAINNET, '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', 8, 'cDAI', 'Compound Dai');
+export const cUSDC = new Token(ChainId.MAINNET, '0x39AA39c021dfbaE8faC545936693aC917d5E7563', 8, 'cUSDC', 'Compound USD Coin');
 
 
 const WHT_ONLY: ChainTokenList = {
@@ -35,7 +35,7 @@ const WHT_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WHT_ONLY,
-  [ChainId.HECO]: [...WHT_ONLY[ChainId.HECO], DAI, USDC, USDT, COMP, MKR]
+  [ChainId.MAINNET]: [...WHT_ONLY[ChainId.MAINNET], DAI, USDC, USDT, COMP, MKR]
 }
 
 /**
