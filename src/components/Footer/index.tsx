@@ -31,10 +31,6 @@ const StyledFooterItem = styled.div`
   }
 `;
 
-const StyledFooterItemNone = styled.div`
-  display: none;
-`;
-
 const StyledLink = styled(ExternalLink)`
   color: #ffffff;
 `
@@ -42,22 +38,6 @@ const StyledLink = styled(ExternalLink)`
 const Footer = () => {
   return (
     <StyledFooter>
-      <StyledFooterItem>
-        <StyledLink
-          target="_blank"
-          href={`https://etherscan.io/address/0xC28E27870558cF22ADD83540d2126da2e4b464c2#code`}
-        >
-          Sashimi Contract
-        </StyledLink>
-      </StyledFooterItem>
-      <StyledFooterItem>
-        <StyledLink
-          target="_blank"
-          href={`https://etherscan.io/address/0x1DaeD74ed1dD7C9Dabbe51361ac90A69d851234D#code`}
-        >
-          MasterChef Contract
-        </StyledLink>
-      </StyledFooterItem>
       <StyledFooterItem>
         <StyledLink target="_blank" href="https://discord.com/invite/mSEc2uv">
           Discord
@@ -83,21 +63,6 @@ const Footer = () => {
           Docs
         </StyledLink>
       </StyledFooterItem>
-      <StyledFooterItem>
-        <StyledLink target="_blank" href="https://sashimi.cool/files/sashimi_audit_report.pdf">
-          Audit Report
-        </StyledLink>
-      </StyledFooterItem>
-      <StyledFooterItem>
-        <StyledLink target="_blank" href="https://sashimi.cool/api/farms/getList">
-          APY API
-        </StyledLink>
-      </StyledFooterItem>
-      <StyledFooterItemNone>
-        <StyledLink target="_blank" href="https://coinmarketcap.com/currencies/sashimi">
-          Coin Market Cap
-        </StyledLink>
-      </StyledFooterItemNone>
     </StyledFooter>
   )
 }

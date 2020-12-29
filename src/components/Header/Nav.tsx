@@ -39,40 +39,8 @@ const links:Link[] = [
     isExternal: true
   },
   {
-    link: '/lending/#/',
-    text: 'Lending',
-    isExternal: true
-  },
-  {
     link: '/swap',
     text: 'Exchanges'
-  },
-  {
-    link: '/staking',
-    text: 'Staking',
-    isExternal: true
-  },
-  {
-    link: '/investment',
-    text: 'Investment',
-    isExternal: true
-  },
-  {
-    link: '/vault',
-    text: 'Vault',
-    isExternal: true
-  },
-  {
-    link: 'https://info.sashimi.cool/',
-    text: 'Info↗',
-    isExternal: true,
-    target: '_blank'
-  },
-  {
-    link: 'https://snapshot.sashimi.cool/#/sashimi',
-    text: 'Proposals↗',
-    isExternal: true,
-    target: "_blank"
   }
 ];
 
