@@ -14,7 +14,6 @@ import Nav from './Nav'
 
 import { YellowCard } from '../Card'
 import Settings from '../Settings'
-import Menu from '../Menu'
 
 import Row, { RowBetween } from '../Row'
 import Web3Status from '../Web3Status'
@@ -185,7 +184,6 @@ export function HeaderControls() {
       </HeaderElement>
       <HeaderElementWrap>
         <Settings />
-        <Menu />
       </HeaderElementWrap>
     </Controls>
   );
