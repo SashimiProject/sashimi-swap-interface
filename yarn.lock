@@ -2076,10 +2076,10 @@
     "@sashimiswap/core" "1.0.1"
     "@uniswap/lib" "1.1.1"
 
-"@sashimiswap/sdk@1.0.3-kovan":
-  version "1.0.3-kovan"
-  resolved "https://registry.yarnpkg.com/@sashimiswap/sdk/-/sdk-1.0.3-kovan.tgz#c781c84835a1a07e2a18c873a3f06667454434c7"
-  integrity sha512-AcQ1eTvx+Njsnzh/5w71Wb2i9qoN+psRG6V/No3XsifegpS/EiQRY2Qrh2Fb9pUaFKYFuiRgMwCjw7SD0B2a9g==
+"@sashimiswap/sdk@1.0.4-huobi":
+  version "1.0.4-huobi"
+  resolved "https://registry.yarnpkg.com/@sashimiswap/sdk/-/sdk-1.0.4-huobi.tgz#5212eb03e1bf7697ae844461d754781ad45eecc9"
+  integrity sha512-ZLMJMbjyMywPl6YpIFX77UY83TtBlyBIx9kVPDIKGG6D0uaYaD3Bct1MYGWYvz/A9zGQIGcF7a3gcJVngAK0Cg==
   dependencies:
     "@uniswap/v2-core" "^1.0.0"
     big.js "^5.2.2"

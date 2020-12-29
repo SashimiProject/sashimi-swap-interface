@@ -5,7 +5,7 @@ import {injected} from '../connectors'
 
 // TODO: Use sashimi router
 // TODO: change .env
-export const ROUTER_ADDRESS = '0xccad491b892d9fac3bc5e38db64f9d5121d597db'
+export const ROUTER_ADDRESS = '0x1daed74ed1dd7c9dabbe51361ac90a69d851234d'
 
 // a list of tokens by chain
 type ChainTokenList = {
