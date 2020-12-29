@@ -20,6 +20,7 @@ import CurrencyLogo from '../CurrencyLogo'
 import DoubleCurrencyLogo from '../DoubleLogo'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
 import { Dots } from '../swap/styleds'
+import { getEtherscanLink } from '../../utils'
 
 export const FixedHeightRow = styled(RowBetween)`
   height: 24px;
@@ -124,7 +125,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
 }
 
 export default function FullPositionCard({ pair, border }: PositionCardProps) {
-  const { account } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
 
   const currency0 = unwrappedToken(pair.token0)
   const currency1 = unwrappedToken(pair.token1)
@@ -224,7 +225,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
             </FixedHeightRow>
 
             <AutoRow justify="center" marginTop={'10px'}>
-              <ExternalLink href={`https://info.sashimi.cool/pair/${pair.liquidityToken.address}`}>
+              <ExternalLink href={getEtherscanLink(chainId || 128, pair.liquidityToken.address, 'address')}>
                 View pool information ↗
               </ExternalLink>
             </AutoRow>
