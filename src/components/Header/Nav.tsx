@@ -41,6 +41,12 @@ const links:Link[] = [
   {
     link: '/swap',
     text: 'Exchanges'
+  },
+  {
+    link: 'https://heco-info.sashimi.cool/',
+    text: 'Info↗',
+    isExternal: true,
+    target: '_blank'
   }
 ];
 
