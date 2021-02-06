@@ -73,7 +73,13 @@ const links:Link[] = [
     text: 'Proposals↗',
     isExternal: true,
     target: "_blank"
-  }
+  },
+  {
+    link: 'https://v2.sashimi.cool/',
+    text: 'V2↗',
+    isExternal: true,
+    target: "_blank"
+  },
 ];
 
 const OverLay = () => {
