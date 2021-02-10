@@ -6,6 +6,7 @@ import {
   Menu
 } from 'antd';
 import MenuOutlined from '@ant-design/icons/MenuOutlined'
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import {
   If,
   Else,
@@ -80,7 +81,34 @@ const links:Link[] = [
     isExternal: true,
     target: "_blank"
   },
+  {
+    link: 'https://heco.sashimi.cool/',
+    text: 'Heco',
+    isExternal: true,
+    target: '_self'
+  }
 ];
+
+const chains = [
+  {
+    link: 'https://heco.sashimi.cool/',
+    text: 'Heco',
+    linkTarget: '_self',
+  }
+];
+const chainSelect = () => (
+  <Menu>
+    {
+      chains.map(item => (
+        <Menu.Item key={item.link}>
+          <StyledExternalLink href={item.link} target={item.linkTarget || '_blank'}>
+            {item.text}
+          </StyledExternalLink>
+        </Menu.Item>
+      ))
+    }
+  </Menu>
+);
 
 const OverLay = () => {
   return (
@@ -127,7 +155,7 @@ const Nav: React.FC = () => {
       <Else>
         <StyledNav>
           {
-            links.map(v => v.isExternal ? (
+            links.map(v => v.text === 'Heco' ? null : (v.isExternal ? (
               <StyledExternalLink key={v.text} href={v.link} target={v.target || '_self'}>{v.text}</StyledExternalLink>
             ) : (
               <StyledLink
@@ -138,8 +166,13 @@ const Nav: React.FC = () => {
               >
                 {v.text}
               </StyledLink>
-            ))
+            )))
           }
+          <Dropdown overlay={chainSelect}>
+            <Button>
+              Ethereum <DownOutlined />
+            </Button>
+          </Dropdown>
         </StyledNav>
       </Else>
     </If>
