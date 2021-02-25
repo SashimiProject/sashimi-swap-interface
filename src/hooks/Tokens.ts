@@ -101,8 +101,9 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
   ])
 }
 
+const nativeTokenSymbol = process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL || 'ETH';
 export function useCurrency(currencyId: string | undefined): Currency | null | undefined {
-  const isHT = currencyId?.toUpperCase() === 'HT'
+  const isHT = currencyId?.toUpperCase() === nativeTokenSymbol
   const token = useToken(isHT ? undefined : currencyId)
   return isHT ? HT : token
 }

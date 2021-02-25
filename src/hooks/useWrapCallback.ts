@@ -12,6 +12,8 @@ export enum WrapType {
   UNWRAP
 }
 
+const nativeTokenSymbol = process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL || 'ETH';
+
 const NOT_APPLICABLE = { wrapType: WrapType.NOT_APPLICABLE }
 /**
  * Given the selected input and output currency, return a wrap callback
@@ -44,13 +46,13 @@ export default function useWrapCallback(
             ? async () => {
                 try {
                   const txReceipt = await wethContract.deposit({ value: `0x${inputAmount.raw.toString(16)}` })
-                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} HT to WHT` })
+                  addTransaction(txReceipt, { summary: `Wrap ${inputAmount.toSignificant(6)} ${nativeTokenSymbol} to W${nativeTokenSymbol}` })
                 } catch (error) {
                   console.error('Could not deposit', error)
                 }
               }
             : undefined,
-        inputError: sufficientBalance ? undefined : 'Insufficient HT balance'
+        inputError: sufficientBalance ? undefined : `Insufficient ${process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL} balance`
       }
     } else if (currencyEquals(WHT[chainId], inputCurrency) && outputCurrency === HT) {
       return {

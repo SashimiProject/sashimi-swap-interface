@@ -3,9 +3,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 
 import {injected} from '../connectors'
 
-// TODO: Use sashimi router
-// TODO: change .env
-export const ROUTER_ADDRESS = '0x1daed74ed1dd7c9dabbe51361ac90a69d851234d'
+export const ROUTER_ADDRESS = process.env.REACT_APP_SWAP_ROUTER_ADDRESS as string;
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -29,7 +27,9 @@ const WHT_ONLY: ChainTokenList = {
   [ChainId.GÖRLI]: [WHT[ChainId.GÖRLI]],
   [ChainId.KOVAN]: [WHT[ChainId.KOVAN]],
   [ChainId.THECO]: [WHT[ChainId.THECO]],
-  [ChainId.HECO]: [WHT[ChainId.HECO]]
+  [ChainId.HECO]: [WHT[ChainId.HECO]],
+  [ChainId.BSC]: [WHT[ChainId.BSC]],
+  [ChainId.TBSC]: [WHT[ChainId.TBSC]]
 }
 
 // used to construct intermediary pairs for trading

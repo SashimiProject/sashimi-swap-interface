@@ -58,7 +58,12 @@ export default function Pool() {
       <AppBody>
         <SwapPoolTabs active={'pool'} />
         <AutoColumn gap="lg" justify="center">
-          <ButtonPrimary id="join-pool-button" as={Link} style={{ padding: 16 }} to="/add/HT">
+          <ButtonPrimary
+            id="join-pool-button"
+            as={Link}
+            style={{ padding: 16 }}
+            to={`/add/${process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL}`}
+          >
             <Text fontWeight={500} fontSize={20}>
               Add Liquidity
             </Text>

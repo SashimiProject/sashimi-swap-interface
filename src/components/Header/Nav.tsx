@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, Fragment } from 'react'
 import styled from 'styled-components'
 import {
   Button,
@@ -25,7 +25,8 @@ interface Link {
   link: string,
   text?: string,
   isExternal?: boolean,
-  target?: string
+  target?: string,
+  isMobile?: boolean
 }
 
 const links:Link[] = [
@@ -40,11 +41,16 @@ const links:Link[] = [
     isExternal: true
   },
   {
+    link: '/lending/#/',
+    text: 'Lending',
+    isExternal: true
+  },
+  {
     link: '/swap',
     text: 'Exchanges'
   },
   {
-    link: 'https://heco-info.sashimi.cool/',
+    link: process.env.REACT_APP_SWAP_INFO_URL as string,
     text: 'Info↗',
     isExternal: true,
     target: '_blank'
@@ -53,6 +59,14 @@ const links:Link[] = [
     link: 'https://sashimi.cool/',
     text: 'Ethereum',
     isExternal: true,
+    isMobile: true,
+    target: '_self'
+  },
+  {
+    link: 'https://heco.sashimi.cool/',
+    text: 'Heco',
+    isExternal: true,
+    isMobile: true,
     target: '_self'
   }
 ];
@@ -61,6 +75,11 @@ const chains = [
   {
     link: 'https://sashimi.cool/',
     text: 'Ethereum',
+    linkTarget: '_self',
+  },
+  {
+    link: 'https://heco.sashimi.cool/',
+    text: 'Heco',
     linkTarget: '_self',
   }
 ];
@@ -83,9 +102,9 @@ const OverLay = () => {
     <Menu>
       {
         links.map((v, i) => (
-          <>
+          <Fragment key={v.text}>
             {i === 0 ? null : <Menu.Divider />}
-            <Menu.Item key={v.text}>
+            <Menu.Item>
               {
                 v.isExternal ? (
                   <ExternalLink href={v.link} target={v.target || '_self'}>{v.text}</ExternalLink>
@@ -94,7 +113,7 @@ const OverLay = () => {
                 )
               }
             </Menu.Item>
-          </>
+          </Fragment>
         ))
       }
     </Menu>
@@ -123,7 +142,7 @@ const Nav: React.FC = () => {
       <Else>
         <StyledNav>
           {
-            links.map(v => v.text === 'Ethereum' ? null : (v.isExternal ? (
+            links.map(v => v.isMobile ? null : (v.isExternal ? (
               <StyledExternalLink key={v.text} href={v.link} target={v.target || '_self'}>{v.text}</StyledExternalLink>
             ) : (
               <StyledLink
@@ -138,7 +157,7 @@ const Nav: React.FC = () => {
           }
           <Dropdown overlay={chainSelect}>
             <Button>
-              Heco <DownOutlined />
+              Bsc <DownOutlined />
             </Button>
           </Dropdown>
         </StyledNav>

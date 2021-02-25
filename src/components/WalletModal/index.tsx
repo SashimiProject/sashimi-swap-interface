@@ -338,7 +338,7 @@ export default function WalletModal({
           )}
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
-              <span>New to Heco? &nbsp;</span>{' '}
+              <span>New here? &nbsp;</span>{' '}
               <ExternalLink href="https://www.hecochain.com/">Learn more about Heco</ExternalLink>
             </Blurb>
           )}

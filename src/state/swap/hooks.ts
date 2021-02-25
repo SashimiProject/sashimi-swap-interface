@@ -32,7 +32,7 @@ export function useSwapActionHandlers(): {
       dispatch(
         selectCurrency({
           field,
-          currencyId: currency instanceof Token ? currency.address : currency === HT ? 'HT' : ''
+          currencyId: currency instanceof Token ? currency.address : currency === HT ? process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL as string : ''
         })
       )
     },
@@ -85,11 +85,10 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
   return undefined
 }
 
-// todo: change factory
 const BAD_RECIPIENT_ADDRESSES: string[] = [
-  '0xc28e27870558cf22add83540d2126da2e4b464c2', // v2 factory
-  '0x1daed74ed1dd7c9dabbe51361ac90a69d851234d', // v2 router 01
-  '0x06c7b472261f788634b62214adbb6d26795d85f9' // masterchef
+  process.env.REACT_APP_SWAP_FACTORY_ADDRESS as string, // v2 factory
+  process.env.REACT_APP_SWAP_ROUTER_ADDRESS as string, // v2 router 01
+  process.env.REACT_APP_MASTER_CHEF_ADDRESS as string // masterchef
 ]
 
 /**
@@ -201,14 +200,16 @@ export function useDerivedSwapInfo(): {
   }
 }
 
+const nativeTokenSymbol = process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL || 'ETH';
+
 function parseCurrencyFromURLParameter(urlParam: any): string {
   if (typeof urlParam === 'string') {
     const valid = isAddress(urlParam)
     if (valid) return valid
-    if (urlParam.toUpperCase() === 'HT') return 'HT'
-    if (valid === false) return 'HT'
+    if (urlParam.toUpperCase() === nativeTokenSymbol) return nativeTokenSymbol
+    if (valid === false) return nativeTokenSymbol
   }
-  return 'HT' ?? ''
+  return nativeTokenSymbol ?? ''
 }
 
 function parseTokenAmountURLParameter(urlParam: any): string {

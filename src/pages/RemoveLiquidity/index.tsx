@@ -42,6 +42,8 @@ import { useWalletModalToggle } from '../../state/application/hooks'
 import { useUserDeadline, useUserSlippageTolerance } from '../../state/user/hooks'
 import { BigNumber } from '@ethersproject/bignumber'
 
+const nativeTokenSymbol = process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL;
+
 export default function RemoveLiquidity({
   history,
   match: {
@@ -560,15 +562,15 @@ export default function RemoveLiquidity({
                               currencyB === HT ? WHT[chainId].address : currencyIdB
                             }`}
                           >
-                            Receive WHT
+                            Receive W{nativeTokenSymbol}
                           </StyledInternalLink>
                         ) : oneCurrencyIsWETH ? (
                           <StyledInternalLink
                             to={`/remove/${
-                              currencyA && currencyEquals(currencyA, WHT[chainId]) ? 'HT' : currencyIdA
-                            }/${currencyB && currencyEquals(currencyB, WHT[chainId]) ? 'HT' : currencyIdB}`}
+                              currencyA && currencyEquals(currencyA, WHT[chainId]) ? nativeTokenSymbol : currencyIdA
+                            }/${currencyB && currencyEquals(currencyB, WHT[chainId]) ? nativeTokenSymbol : currencyIdB}`}
                           >
-                            Receive HT
+                            Receive {nativeTokenSymbol}
                           </StyledInternalLink>
                         ) : null}
                       </RowBetween>

@@ -17,8 +17,9 @@ import { FadedSpan, MenuItem } from './styleds'
 import Loader from '../Loader'
 import { isTokenOnList } from '../../utils'
 
+const nativeTokenSymbol = process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL || 'ETH';
 function currencyKey(currency: Currency): string {
-  return currency instanceof Token ? currency.address : currency === HT ? 'HT' : ''
+  return currency instanceof Token ? currency.address : currency === HT ? nativeTokenSymbol : ''
 }
 
 const StyledBalanceText = styled(Text)`

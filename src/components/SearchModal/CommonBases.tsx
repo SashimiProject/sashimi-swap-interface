@@ -53,7 +53,7 @@ export default function CommonBases({
         >
           <CurrencyLogo currency={HT} style={{ marginRight: 8 }} />
           <Text fontWeight={500} fontSize={16}>
-            HT
+            {process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL}
           </Text>
         </BaseWrapper>
         {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {

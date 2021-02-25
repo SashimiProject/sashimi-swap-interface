@@ -128,13 +128,15 @@ const StyledRow = styled(RowBetween)`
 `
 
 const NETWORK_LABELS: { [chainId in ChainId]: string | null } = {
-  [ChainId.MAINNET]: 'Pls use heco',
+  [ChainId.MAINNET]: '',
   [ChainId.RINKEBY]: 'Rinkeby',
   [ChainId.ROPSTEN]: 'Ropsten',
   [ChainId.GÖRLI]: 'Görli',
   [ChainId.KOVAN]: 'Kovan',
   [ChainId.HECO]: 'Heco',
-  [ChainId.THECO]: 'Heco test'
+  [ChainId.THECO]: 'Heco test',
+  [ChainId.BSC]: 'BSC',
+  [ChainId.TBSC]: 'TBSC'
 }
 
 const StyledLogo = styled.img`
@@ -176,7 +178,7 @@ export function HeaderControls() {
         <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
           {account && userEthBalance ? (
             <BalanceText style={{ flexShrink: 0 }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-              {userEthBalance?.toSignificant(4)} HT
+              {userEthBalance?.toSignificant(4)} {process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL}
             </BalanceText>
           ) : null}
           <Web3Status />

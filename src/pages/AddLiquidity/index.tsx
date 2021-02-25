@@ -288,7 +288,7 @@ export default function AddLiquidity({
           history.push(`/add/${newCurrencyIdB}`)
         }
       } else {
-        history.push(`/add/${currencyIdA ? currencyIdA : 'HT'}/${newCurrencyIdB}`)
+        history.push(`/add/${currencyIdA ? currencyIdA : process.env.REACT_APP_CHAIN_NATIVE_TOKEN_SYMBOL}/${newCurrencyIdB}`)
       }
     },
     [currencyIdA, history, currencyIdB]
