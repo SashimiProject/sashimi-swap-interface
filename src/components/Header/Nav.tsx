@@ -25,7 +25,8 @@ interface Link {
   link: string,
   text?: string,
   isExternal?: boolean,
-  target?: string
+  target?: string,
+  isMobile?: boolean
 }
 
 const links:Link[] = [
@@ -85,7 +86,15 @@ const links:Link[] = [
     link: 'https://heco.sashimi.cool/',
     text: 'Heco',
     isExternal: true,
-    target: '_self'
+    target: '_self',
+    isMobile: true
+  },
+  {
+    link: 'https://bsc.sashimi.cool/',
+    text: 'BSC',
+    isExternal: true,
+    target: '_self',
+    isMobile: true
   }
 ];
 
@@ -93,6 +102,11 @@ const chains = [
   {
     link: 'https://heco.sashimi.cool/',
     text: 'Heco',
+    linkTarget: '_self',
+  },
+  {
+    link: 'https://bsc.sashimi.cool/',
+    text: 'BSC',
     linkTarget: '_self',
   }
 ];
@@ -155,7 +169,7 @@ const Nav: React.FC = () => {
       <Else>
         <StyledNav>
           {
-            links.map(v => v.text === 'Heco' ? null : (v.isExternal ? (
+            links.map(v => v.isMobile ? null : (v.isExternal ? (
               <StyledExternalLink key={v.text} href={v.link} target={v.target || '_self'}>{v.text}</StyledExternalLink>
             ) : (
               <StyledLink
