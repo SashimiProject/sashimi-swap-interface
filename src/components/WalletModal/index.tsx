@@ -336,10 +336,11 @@ export default function WalletModal({
           ) : (
             <OptionGrid>{getOptions()}</OptionGrid>
           )}
+          {/* todo: link */}
           {walletView !== WALLET_VIEWS.PENDING && (
             <Blurb>
               <span>New here? &nbsp;</span>{' '}
-              <ExternalLink href="https://www.hecochain.com/">Learn more about Heco</ExternalLink>
+              <ExternalLink href="https://www.binance.org/en/smartChain">Learn more</ExternalLink>
             </Blurb>
           )}
         </ContentWrapper>

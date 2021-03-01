@@ -29,6 +29,7 @@ interface Link {
   isMobile?: boolean
 }
 
+// TODO: HEADER LINKS
 const links:Link[] = [
   {
     link: '/',
@@ -157,7 +158,7 @@ const Nav: React.FC = () => {
           }
           <Dropdown overlay={chainSelect}>
             <Button>
-              Bsc <DownOutlined />
+              BSC <DownOutlined />
             </Button>
           </Dropdown>
         </StyledNav>
