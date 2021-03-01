@@ -39,6 +39,22 @@ const Footer = () => {
   return (
     <StyledFooter>
       <StyledFooterItem>
+        <StyledLink
+          target="_blank"
+          href={`https://hecoinfo.com/address/0xc2037c1c13dd589e0c14c699dd2498227d2172cc#code`}
+        >
+          Sashimi Contract
+        </StyledLink>
+      </StyledFooterItem>
+      <StyledFooterItem>
+        <StyledLink
+          target="_blank"
+          href={`https://hecoinfo.com/address/0x06c7b472261f788634b62214adbb6d26795d85f9#code`}
+        >
+          MasterChef Contract
+        </StyledLink>
+      </StyledFooterItem>
+      <StyledFooterItem>
         <StyledLink target="_blank" href="https://discord.com/invite/mSEc2uv">
           Discord
         </StyledLink>
