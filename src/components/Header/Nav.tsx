@@ -51,6 +51,11 @@ const links:Link[] = [
     text: 'Exchanges'
   },
   {
+    link: '/investment',
+    text: 'Investment',
+    isExternal: true
+  },
+  {
     link: process.env.REACT_APP_SWAP_INFO_URL as string,
     text: 'Info↗',
     isExternal: true,
