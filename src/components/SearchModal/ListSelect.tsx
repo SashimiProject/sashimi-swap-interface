@@ -339,7 +339,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       <PaddedColumn gap="14px">
         <Text fontWeight={600}>
           Add a list{' '}
-          <QuestionHelper text="Token lists are an open specification for lists of ERC20 tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious ERC20 tokens." />
+          <QuestionHelper text={`Token lists are an open specification for lists of ${process.env.REACT_APP_TOKEN_PROTOCOL_NAME} tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious ${process.env.REACT_APP_TOKEN_PROTOCOL_NAME} tokens.`} />
         </Text>
         <Row>
           <SearchInput
