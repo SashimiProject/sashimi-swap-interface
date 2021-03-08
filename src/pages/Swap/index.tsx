@@ -22,7 +22,7 @@ import ProgressSteps from '../../components/ProgressSteps'
 import { INITIAL_ALLOWED_SLIPPAGE } from '../../constants'
 import { getTradeVersion } from '../../data/V1'
 import { useActiveWeb3React } from '../../hooks'
-import { useCurrency } from '../../hooks/Tokens'
+import { useCurrency, useDefalutTokenList } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
 import useENSAddress from '../../hooks/useENSAddress'
 import { useSwapCallback } from '../../hooks/useSwapCallback'
@@ -46,7 +46,8 @@ import Loader from '../../components/Loader'
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
-
+  const { account, chainId } = useActiveWeb3React()
+  const defaultTokenList = useDefalutTokenList()
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
     useCurrency(loadedUrlParams?.inputCurrencyId),
@@ -54,14 +55,13 @@ export default function Swap() {
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
-    () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token) ?? [],
-    [loadedInputCurrency, loadedOutputCurrency]
+    () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token && !(defaultTokenList[chainId || 1]?.[c.address] ?? false)) ?? [],
+    [loadedInputCurrency, loadedOutputCurrency, chainId, defaultTokenList]
   )
   const handleConfirmTokenWarning = useCallback(() => {
     setDismissTokenWarning(true)
   }, [])
 
-  const { account } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
 
   // toggle wallet when disconnected
