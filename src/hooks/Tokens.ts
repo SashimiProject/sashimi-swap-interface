@@ -1,13 +1,14 @@
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, HT, Token, currencyEquals } from '@sashimiswap/sdk'
 import { useMemo } from 'react'
-import { useSelectedTokenList } from '../state/lists/hooks'
+import { useSelectedTokenList, useTokenList } from '../state/lists/hooks'
 import { NEVER_RELOAD, useSingleCallResult } from '../state/multicall/hooks'
 import { useUserAddedTokens } from '../state/user/hooks'
 import { isAddress } from '../utils'
 
 import { useActiveWeb3React } from './index'
 import { useBytes32TokenContract, useTokenContract } from './useContract'
+import { DEFAULT_TOKEN_LIST_URL } from '../constants/lists'
 
 export function useAllTokens(): { [address: string]: Token } {
   const { chainId } = useActiveWeb3React()
@@ -105,4 +106,8 @@ export function useCurrency(currencyId: string | undefined): Currency | null | u
   const isHT = currencyId?.toUpperCase() === 'HT'
   const token = useToken(isHT ? undefined : currencyId)
   return isHT ? HT : token
+}
+
+export function useDefalutTokenList() {
+  return useTokenList(DEFAULT_TOKEN_LIST_URL)
 }
