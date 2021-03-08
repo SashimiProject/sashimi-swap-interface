@@ -41,8 +41,18 @@ const links:Link[] = [
     isExternal: true
   },
   {
+    link: '/lending/#/',
+    text: 'Lending',
+    isExternal: true
+  },
+  {
     link: '/swap',
     text: 'Exchanges'
+  },
+  {
+    link: '/investment',
+    text: 'Investment',
+    isExternal: true
   },
   {
     link: 'https://heco-info.sashimi.cool/',
