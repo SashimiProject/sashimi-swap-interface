@@ -22,6 +22,7 @@ export default function Logo({ srcs, alt, ...rest }: LogoProps) {
         {...rest}
         alt={alt}
         src={src}
+        referrerPolicy='no-referrer'
         onError={() => {
           if (src) BAD_SRCS[src] = true
           refresh(i => i + 1)
