@@ -99,6 +99,7 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "pkg:online": "npm run build && cd ./build && tar -zcvf build-bsc-interface.tar.gz ./",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
