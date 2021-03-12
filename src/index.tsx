@@ -16,6 +16,7 @@ import MulticallUpdater from './state/multicall/updater'
 import TransactionUpdater from './state/transactions/updater'
 import UserUpdater from './state/user/updater'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from './theme'
+import NetworkProvider from './contexts/NetworkProvider'
 import getLibrary from './utils/getLibrary'
 
 const Web3ProviderNetwork = createWeb3ReactRoot(NetworkContextName)
@@ -61,10 +62,12 @@ ReactDOM.render(
         <Provider store={store}>
           <Updaters />
           <ThemeProvider>
-            <Mobile>
-              <ThemedGlobalStyle />
-              <App />
-            </Mobile>
+            <NetworkProvider>
+              <Mobile>
+                <ThemedGlobalStyle />
+                <App />
+              </Mobile>
+            </NetworkProvider>
           </ThemeProvider>
         </Provider>
       </Web3ProviderNetwork>
