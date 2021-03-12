@@ -102,7 +102,8 @@
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'"
+    "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
+    "pkg:heco": "npm run build && cd ./build && tar -zcvf build-heco-interface.tar.gz ./"
   },
   "eslintConfig": {
     "extends": "react-app"
