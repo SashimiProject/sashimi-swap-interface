@@ -50,6 +50,11 @@ const links:Link[] = [
     text: 'Exchanges'
   },
   {
+    link: '/bridge',
+    text: 'Bridge',
+    isExternal: true
+  },
+  {
     link: '/investment',
     text: 'Investment',
     isExternal: true
