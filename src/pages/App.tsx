@@ -2,7 +2,8 @@ import React, { Suspense } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import {
-  Layout
+  Layout,
+  Modal
 } from 'antd'
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 import Header, { HeaderControls } from '../components/Header'
@@ -64,6 +65,12 @@ const StyledHeader = styled(LayoutHeader)`
 `
 
 export default function App() {
+  Modal.info({
+    title: 'Alert !!!!!!',
+    content:
+      'Due to the technical issues, you are unable to do anything related with $ETH. Please do NOT add liquidity nor swap with $ETH. This is a protection from financial loss !!!!'
+  })
+
   return (
     <Suspense fallback={null}>
       <HashRouter>

@@ -59,12 +59,12 @@ const links:Link[] = [
     text: 'Investment',
     isExternal: true
   },
-  {
-    link: 'https://heco-info.sashimi.cool/',
-    text: 'Info↗',
-    isExternal: true,
-    target: '_blank'
-  },
+  // {
+  //   link: 'https://heco-info.sashimi.cool/',
+  //   text: 'Info↗',
+  //   isExternal: true,
+  //   target: '_blank'
+  // },
   {
     link: 'https://sashimi.cool/',
     text: 'Ethereum',
