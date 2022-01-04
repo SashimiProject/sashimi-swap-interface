@@ -55,7 +55,10 @@ export default function Swap() {
   ]
   const [dismissTokenWarning, setDismissTokenWarning] = useState<boolean>(false)
   const urlLoadedTokens: Token[] = useMemo(
-    () => [loadedInputCurrency, loadedOutputCurrency]?.filter((c): c is Token => c instanceof Token && !(defaultTokenList[chainId || 1]?.[c.address] ?? false)) ?? [],
+    () =>
+      [loadedInputCurrency, loadedOutputCurrency]?.filter(
+        (c): c is Token => c instanceof Token && !(defaultTokenList[chainId || 1]?.[c.address] ?? false)
+      ) ?? [],
     [loadedInputCurrency, loadedOutputCurrency, chainId, defaultTokenList]
   )
   const handleConfirmTokenWarning = useCallback(() => {
@@ -418,9 +421,10 @@ export default function Swap() {
                   }}
                   width="48%"
                   id="swap-button"
-                  disabled={
-                    !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
-                  }
+                  disabled
+                  // disabled={
+                  //   !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
+                  // }
                   error={isValid && priceImpactSeverity > 2}
                 >
                   <Text fontSize={16} fontWeight={500}>
@@ -446,7 +450,8 @@ export default function Swap() {
                   }
                 }}
                 id="swap-button"
-                disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
+                disabled
+                // disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                 error={isValid && priceImpactSeverity > 2 && !swapCallbackError}
               >
                 <Text fontSize={20} fontWeight={500}>

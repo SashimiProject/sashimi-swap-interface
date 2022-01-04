@@ -80,7 +80,7 @@ export default function AddLiquidity({
   const isValid = !error
 
   // modal and loading
-  const [showConfirm, setShowConfirm] = useState<boolean>(false)
+  const [, setShowConfirm] = useState<boolean>(false)
   const [attemptingTxn, setAttemptingTxn] = useState<boolean>(false) // clicked confirm
 
   // txn values
@@ -172,7 +172,7 @@ export default function AddLiquidity({
 
     setAttemptingTxn(true)
     await estimate(...args, value ? { value } : {})
-      .then(estimatedGasLimit =>{
+      .then(estimatedGasLimit => {
         return method(...args, {
           ...(value ? { value } : {}),
           gasLimit: calculateGasMargin(estimatedGasLimit)
@@ -309,7 +309,8 @@ export default function AddLiquidity({
         <AddRemoveTabs adding={true} />
         <Wrapper>
           <TransactionConfirmationModal
-            isOpen={showConfirm}
+            // isOpen={showConfirm}
+            isOpen={false}
             onDismiss={handleDismissConfirmation}
             attemptingTxn={attemptingTxn}
             hash={txHash}
@@ -430,7 +431,8 @@ export default function AddLiquidity({
                   onClick={() => {
                     expertMode ? onAdd() : setShowConfirm(true)
                   }}
-                  disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
+                  disabled
+                  // disabled={!isValid || approvalA !== ApprovalState.APPROVED || approvalB !== ApprovalState.APPROVED}
                   error={!isValid && !!parsedAmounts[Field.CURRENCY_A] && !!parsedAmounts[Field.CURRENCY_B]}
                 >
                   <Text fontSize={20} fontWeight={500}>

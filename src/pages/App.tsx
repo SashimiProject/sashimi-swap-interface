@@ -1,9 +1,7 @@
 import React, { Suspense } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
-import {
-  Layout
-} from 'antd'
+import { Layout, Modal } from 'antd'
 import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 import Header, { HeaderControls } from '../components/Header'
 import Footer from '../components/Footer'
@@ -23,9 +21,7 @@ import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redir
 import Swap from './Swap'
 import { RedirectPathToSwapOnly, RedirectToSwap } from './Swap/redirects'
 
-const {
-  Header: LayoutHeader
-} = Layout;
+const { Header: LayoutHeader } = Layout
 
 const AppWrapper = styled.div`
   display: flex;
@@ -58,12 +54,17 @@ const Marginer = styled.div`
 const StyledHeader = styled(LayoutHeader)`
   width: 100%;
   background: ${props => props.theme.bg1};
-  @media(max-width: 576px) {
+  @media (max-width: 576px) {
     padding: 0;
   }
 `
 
 export default function App() {
+  Modal.info({
+    title: 'Alert !!!!!!',
+    content:
+      'Due to the technical issues, we are currently suspend functions of adding any liquidity and trading!! This is a protection from financial loss !!!! We are sorry about the inconvenience!!'
+  })
   return (
     <Suspense fallback={null}>
       <HashRouter>
